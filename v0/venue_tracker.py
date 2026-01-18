@@ -284,10 +284,10 @@ def main():
     
     all_events = []
     scrapers = [
-        ("H0L0", scrape_h0l0),
+        # ("H0L0", scrape_h0l0),
         # ("Wonderville", scrape_wonderville),
         # ("Brooklyn Bowl", scrape_brooklyn_bowl),
-        # ("Gold Sounds", scrape_gold_sounds_dice),
+        ("Gold Sounds", scrape_gold_sounds_dice),
         # ("Nowadays", scrape_nowadays_ra),
         # ("Brooklyn Paramount", scrape_brooklyn_paramount),
     ]
