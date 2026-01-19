@@ -181,7 +181,7 @@ def parse_events(response_data: dict) -> list:
     return events
 
 
-def fetch_all_club_events(club_id: int, include_past: bool = True, max_pages: int = 10) -> pd.DataFrame:
+def fetch_all_club_events(club_id: int, include_past: bool = False, max_pages: int = 10) -> pd.DataFrame:
     """
     Fetch all events (upcoming and optionally past) for a club.
     
@@ -254,9 +254,9 @@ def main():
         help="Output file path (default: events.csv). Supports .csv and .json"
     )
     parser.add_argument(
-        "--no-past",
+        "--include-past",
         action="store_true",
-        help="Only fetch upcoming events, skip past events"
+        help="Fetch past events in addition to upcoming events"
     )
     parser.add_argument(
         "--max-pages",
@@ -270,7 +270,7 @@ def main():
     # Fetch events
     df = fetch_all_club_events(
         club_id=args.club_id,
-        include_past=not args.no_past,
+        include_past=args.include_past,
         max_pages=args.max_pages
     )
     
